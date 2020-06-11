@@ -1,5 +1,4 @@
 %define        _profile_dir  /etc/profile.d
-%define        _profile_file  %{_profile_dir}/%{name}.bash
 
 Name:       wp-cli
 Version:    2.4.0
@@ -42,6 +41,7 @@ mkdir -p %{buildroot}%{_bindir}
 cp -a %{SOURCE0} %{buildroot}%{_bindir}/wp
 mkdir -p %{buildroot}%{_mandir}/man1
 cp -a %{SOURCE1} %{buildroot}%{_mandir}/man1/
+mkdir -p %{buildroot}%{_profile_dir}
 cp -a %{SOURCE2} %{buildroot}%{_profile_dir}/%{name}.bash
 
 %files
