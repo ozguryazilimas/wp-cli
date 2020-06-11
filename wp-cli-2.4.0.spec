@@ -21,11 +21,12 @@ WP-CLI is the command-line interface for WordPress.
 You can update plugins, configure multisite installations and much more, without using a web browser.
 
 %prep
-md5=$(wget -nv -O - "https://github.com/wp-cli/wp-cli/releases/download/v%{version}/wp-cli-%{version}.phar.md5")
-wget -nv -O %{SOURCE0} "https://github.com/wp-cli/wp-cli/releases/download/v%{version}/wp-cli-%{version}.phar"
+md5=$(wget -nv -O - "https://github.com/%{name}/%{name}/releases/download/v%{version}/%{name}-%{version}.phar.md5")
+wget -nv -O %{SOURCE0} "https://github.com/%{name}/%{name}/releases/download/v%{version}/%{name}-%{version}.phar"
 [[ $(md5sum %{SOURCE0} | awk '{ print $1 }') != $md5 ]] && exit 1
-
+wget -nv -O %{SOURCE2} "https://raw.githubusercontent.com/%{name}/%{name}/v%{version}/utils/wp-completion.bash"
 chmod +x %{SOURCE0}
+chmod +x %{SOURCE2}
 {
    echo '.TH "WP" "1"'
    php %{SOURCE0} --help
