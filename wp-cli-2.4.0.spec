@@ -42,12 +42,12 @@ cp -a %{SOURCE0} %{buildroot}%{_bindir}/wp
 mkdir -p %{buildroot}%{_mandir}/man1
 cp -a %{SOURCE1} %{buildroot}%{_mandir}/man1/
 mkdir -p %{buildroot}%{_profile_dir}
-cp -a %{SOURCE2} %{buildroot}%{_profile_dir}/%{name}.bash
+cp -a %{SOURCE2} %{buildroot}%{_profile_dir}/%{name}.sh
 
 %files
 %attr(0755, root, root) %{_bindir}/wp
 %attr(0644, root, root) %{_mandir}/man1/wp.1*
-%attr(0755, root, root) %{_profile_dir}/%{name}.bash
+%attr(0755, root, root) %{_profile_dir}/%{name}.sh
 
 %changelog
 * Thu Jun 11 2020 Murtaza Sarıaltun <murtaza.sarialtun@ozguryazilim.com.tr> - 2.4.0-1
